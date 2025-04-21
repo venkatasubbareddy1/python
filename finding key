@@ -1,0 +1,26 @@
+"""question:
+Take 3 inputs from the user like input 1 ,2 and 3 and find key from that key=(sum of biggest digit from all inputs)+(sum of smallest digit from all inputs)
+for example 
+input1 = 3456
+input 2= 4567
+input 3= 7890
+key =(6+7+9)+(3+4+0)=29
+must and should inputs are  only from 1000 and 9999 only """
+
+
+def big(n):
+    return max([int(d) for d in str(n)])
+def small(n):
+    return min([int(d) for d in str(n)])
+input1 = int(input("enter first number: "))
+input2 = int(input("enter second number: "))
+input3 = int(input("enter third number: "))
+if input1 < 1000 or input1 > 9999 or input2 < 1000 or input2 > 9999 or input3 < 1000 or input3 > 9999:
+    print("All numbers must be 4-digit numbers (between 1000 and 9999).")
+
+else:
+
+    a1=big(input1)+ big(input2)+ big(input3)
+    b1=small(input1) + small(input2) +small (input3)
+    key=a1+b1
+    print(key)
