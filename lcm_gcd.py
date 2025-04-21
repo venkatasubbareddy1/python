@@ -6,5 +6,5 @@ def lcm(a,b):
     return (a * b) // gcd(a, b)
 a = int(input("enter first number: "))
 b = int(input("enter second number: "))
-print("GCD:", gcd(a, b))  # Output: 6
-print("LCM:", lcm(a, b))  # Output: 36
+print("GCD:", gcd(a, b))  
+print("LCM:", lcm(a, b))  
