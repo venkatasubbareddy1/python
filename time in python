@@ -1,0 +1,10 @@
+from datetime import datetime
+import pytz
+
+# Define Tokyo timezone
+tokyo = pytz.timezone('Asia/Kolkata')
+
+# Get current time in Tokyo
+tokyo_time = datetime.now(tokyo)
+
+print("Tokyo Time:", tokyo_time.strftime("%d-%m-%Y %H:%M:%S %Z%z"))
