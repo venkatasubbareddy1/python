@@ -1,0 +1,45 @@
+def evaluate(s):
+    nums=[]
+    symbol=[]
+    p={"+":1,"-":1,"*":2,"/":2}
+    i=0
+    while i<len(s):
+        if(s[i].isdigit()):
+            num=""
+            while i<len(s) and s[i].isdigit():
+                num=num+s[i]
+                i+=1
+            nums.append(int(num))
+        else:
+            while symbol and p[symbol[-1]]>=p[s[i]]:
+                a=nums.pop()
+                b=nums.pop()
+                op=symbol.pop()
+                if op=="+":
+                    nums.append(a+b)
+                elif op=="-":
+                    nums.append(b-a)
+                elif op=="*":
+                    nums.append(a*b)
+                elif op=="/":
+                    nums.append(b//a)
+            symbol.append(s[i])
+            i+=1
+    while symbol:
+        a=nums.pop()
+        b=nums.pop()
+        op=symbol.pop()
+        if op=="+":
+            nums.append(a+b)
+        elif op=="-":
+            nums.append(b-a)
+        elif op=="*":
+            nums.append(a*b)
+        elif op=="/":
+            nums.append(b/a)
+
+
+    res=nums.pop()
+    return res
+s="8/2+4/3*7"
+print(evaluate(s))
