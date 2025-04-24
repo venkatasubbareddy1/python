@@ -1,0 +1,23 @@
+class Triangle:
+
+    def set_length(self, l, b, h):
+        self.l = l
+        self.b = b
+        self.h = h
+
+    def get_area(self):
+        return (self.l * self.b) / 2 
+n=int(input("Enter a number: "))
+shape=[]
+for i in range(n):
+    r=Triangle()
+    l=int(input("Enter the length of triangle {}: ".format(i+1)))
+    b=int(input("Enter the breadth of triangle {}: ".format(i+1)))
+    h=int(input("Enter the height of triangle {}: ".format(i+1)))
+    r.set_length(l,b,h)
+    shape.append(r)
+
+index=0
+for i in shape:
+    print(f"Area of triangle {index} is: {i.get_area()}")
+    index=index+1
