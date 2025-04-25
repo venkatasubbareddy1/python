@@ -1,0 +1,11 @@
+from datetime import datetime
+
+# Input your birthday in the format YYYY-MM-DD
+birthday = input("Enter your birthday (YYYY-MM-DD): ")
+birthday_date = datetime.strptime(birthday, "%Y-%m-%d")
+today_date = datetime.today()
+
+# Calculate the difference in days
+days_difference = (today_date - birthday_date).days
+
+print(f"The number of days from your birthday to today is: {days_difference} days.")
