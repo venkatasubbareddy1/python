@@ -1,0 +1,11 @@
+class Solution(object):
+    def isValid(self, s):
+        stack=[]
+        b={")":"(","}":"{","]":"["}
+        for i in s:
+            if i in b.values():
+                stack.append(i)
+            else:
+                if not stack or stack.pop()!=b[i]:
+                    return False
+        return not stack
