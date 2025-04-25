@@ -1,0 +1,35 @@
+def generate_balanced_matrix(n):
+    if n < 3:
+        raise ValueError("Matrix must be at least 3x3 to have inner and outer elements.")
+
+    # Total number of outer elements (border elements)
+    outer_count = n * n - (n - 2) * (n - 2)
+    inner_count = (n - 2) * (n - 2)
+
+    # Let's choose outer_val randomly from 1 to 9
+    import random
+    outer_val = random.randint(1, 9)
+
+    # Calculate matching inner_val so that the sums are equal
+    inner_val = (outer_val * outer_count) // inner_count
+
+    # Ensure the sum is exactly equal
+    if outer_val * outer_count != inner_val * inner_count:
+        return generate_balanced_matrix(n)  # Retry if it's not divisible evenly
+
+    # Now construct the matrix
+    matrix = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            if i == 0 or i == n-1 or j == 0 or j == n-1:
+                row.append(outer_val)
+            else:
+                row.append(inner_val)
+        matrix.append(row)
+    return matrix
+
+# Generate a 5x5 matrix
+matrix = generate_balanced_matrix(5)
+for row in matrix:
+    print(row)
