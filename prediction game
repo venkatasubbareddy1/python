@@ -1,0 +1,58 @@
+import random
+
+name1 = input("Enter player1 name: ")
+name2 = input("Enter player2 name: ")
+print("Welcome to the game")
+print("Computer has fixed a set of integers in its mind!")
+print("You both have three turns each to guess it, playing alternately.")
+print("Ready for the Game!!!")
+
+a = random.sample(range(1, 11), 5)
+
+player1 = []
+player2 = []
+s1 = 0
+s2 = 0
+
+for i in range(3):
+    # Player 1's turn
+    print("Hii {}! Guess Your Choice Number {}".format(name1, i + 1))
+    x = int(input())
+    while x in player1 or x in player2:
+        print("You have already guessed this number")
+        x = int(input())
+    player1.append(x)
+    if x in a:
+        print("---> Correct")
+        s1 += 1
+    else:
+        print("---> Wrong")
+
+    # Player 2's turn
+    print("Hii {}! Guess Your Choice Number {}".format(name2, i + 1))
+    x1 = int(input())
+    while x1 in player1 or x1 in player2:
+        print("You have already guessed this number")
+        x1 = int(input())
+    player2.append(x1)
+    if x1 in a:
+        print("---> Correct")
+        s2 += 1
+    else:
+        print("---> Wrong")
+
+print("-----------------------------------------------------------")
+print("Let's Have Summary of the Game!!!")
+print("-----------------------------------------------------------")
+print("{} has chosen {}".format(name1, player1))
+print("His score is {}".format(s1))
+print("{} has chosen {}".format(name2, player2))
+print("His score is {}".format(s2))
+print("-----------------------------------------------------------")
+if s1 > s2:
+    print("{} is the winner".format(name1))
+elif s2 > s1:
+    print("{} is the winner".format(name2))
+else:
+    print("------------------> Match is Draw <------------------------")
+print("-----------------------------------------------------------")
