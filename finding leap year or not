@@ -1,0 +1,4 @@
+
+import calendar
+n=int(input("Enter the year: "))
+print(calendar.isleap(n))
